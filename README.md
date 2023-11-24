@@ -1,6 +1,6 @@
 # BifurcationSimilarity
 
-##L'objectif de ce test est d'évaluer les similarités entre des bifurcatsion cérébrales
+## L'objectif de ce test est d'évaluer les similarités entre des bifurcatsion cérébrales
 
 Deux bifurcations seront présentées dans un display 3D,
 l'une est une originale (acquise depuis une MRA-TOF)

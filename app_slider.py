@@ -79,7 +79,7 @@ app.layout = html.Div(
 		html.Div(id='slider-output-container'),
 		html.Br(),
 		#dcc.Input(id='input-on-submit', type='text'),
-		html.A(html.Button('NEXT', id='submit-val', n_clicks=0),href='/'),
+		html.A(html.Button('NEXT', id='submit-val', n_clicks=0)),
 		html.Br(),
 		html.Div(id="output"),
 		html.Br(),
@@ -105,35 +105,33 @@ def update_vtk_view(value, n_clicks):
 
 	idx = len(Scores)
 	Done = 0
+	volname = lines[idx][:-1]
+
+	print("{} {} {} {} {}\n".format(idx, volname, value, n_clicks, Scores))
 
 	#if n_clicks == 1:
 	#	Scores = []
 
 	#volname = lines[len(Scores)][:-1]
 
-	#if idx > 0:
-	volname = lines[len(Scores)][:-1]
-	print("\nprocessing image : " + volname + "\tScore = " +str(value))
-	#Scores.append(value)
+	if idx == 0:
+		#volname = lines[idx][:-1]
+		Scores.append((volname, ' '))
+	else:
+		print("\nprocessing image : " + volname + "\tScore = " + str(value))
+		#Scores.append(value)
 
-	if len(Scores) == NbImages-1:
-		with open(r'output.txt', 'w') as fp:
-			for item in Scores:
-				#fp.write("volname: %s\tScore:  %s\n" % {volname,item})
-				fp.write('volname: {}; Score: {}\n'.format(item[0], item[1]))
-		print('Done')
-		Done=1
-		#sys.exit()
+		if len(Scores) == NbImages-1:
+			with open(r'output.txt', 'w') as fp:
+				for item in Scores:
+					#fp.write("volname: %s\tScore:  %s\n" % {volname,item})
+					fp.write('volname: {}; Score: {}\n'.format(item[0], item[1]))
+			print('Done')
+			Done=1
+			#sys.exit()
 
-	Scores.append((volname, value))
+		Scores.append((volname, value))
 
-	#else:
-	#	volname = lines[len(Scores)][:-1]
-	#	#Scores.append(0)
-	#	Scores.append((volname, value))
-
-
-	#print("{} {} {} {}\n".format(idx,volname, value, Scores))
 
 
 	if Done == 1:

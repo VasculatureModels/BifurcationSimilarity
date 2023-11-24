@@ -17,7 +17,8 @@ except ImportError:
 	# VTK =< 8
 	from vtk.vtkImagingCore import vtkRTAnalyticSource
 
-dash.register_page(__name__)
+
+dash.register_page(__name__, path='/pages/app')
 
 
 lines = []

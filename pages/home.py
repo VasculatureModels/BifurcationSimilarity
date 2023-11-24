@@ -1,7 +1,8 @@
 import dash
-from dash import html
+from dash import html, dcc
 
-dash.register_page(__name__, path='/pages/app')
+#dash.register_page(__name__, path='/')
+dash.register_page(__name__, path='/pages/home')
 
 layout = html.Div([
 	#html.H1('Test subjectif de mesure de similarités entre bifurcations'),
@@ -13,4 +14,8 @@ layout = html.Div([
 	html.Div("l'autre est le fruit d'un modèle synthétique."),
 	html.Br(),
 	html.Div("Une barre de défilement positionnée en haut de la page sert à évaluer les similarités."),
+	html.Br(),
+	html.Br(),
+	#html.A(html.Button('NEXT', id='submit-val', n_clicks=0),href='/pages/app', refresh=True),
+	dcc.Link(html.Button("NEXT"), href="/app_slider", refresh=True),
 ])

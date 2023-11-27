@@ -1,5 +1,6 @@
 import dash
 from dash.dependencies import Input, Output
+from dash.exceptions import PreventUpdate
 from dash import Dash, dcc, html, Input, Output, State, callback, ctx
 import numpy as np
 import os, sys
@@ -121,6 +122,9 @@ layout = html.Div(
 
 )
 def update_vtk_view(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10):
+	#if (btn1 is None) and (btn2 is None) and (btn3 is None) and (btn4 is None) and (btn5 is None) and (btn6 is None) and (btn7 is None) and (btn8 is None) and (btn9 is None) and (btn10 is None):
+	#	return dash.no_update
+	#else:
 	Done = 0
 	idx = 0
 	volname = ''
@@ -186,7 +190,7 @@ def update_vtk_view(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10)
 		Scores.append((volname, '10'))
 
 	print("{} {} {} {}\n".format(idx, volname, Val, Scores))
-	
+
 	if len(Scores) == NbImages:
 		now = datetime.now()
 		current_time = now.strftime("%H:%M:%S")
@@ -214,7 +218,7 @@ def update_vtk_view(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10)
 		#Scores = []
 		return dcc.Location(pathname="/pages/TheEnd", id="backhome")
 	else:
-		if idx == 0:
-			Scores.append(('init',0))
+		#if idx == 0:
+		#	Scores.append(('start',0))
 		return views[idx]
 

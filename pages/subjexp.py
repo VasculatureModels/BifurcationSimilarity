@@ -10,6 +10,7 @@ from dash_vtk.utils import to_volume_state
 import dash_vtk
 import flask
 import random
+from datetime import datetime, date
 
 
 try:
@@ -208,10 +209,13 @@ def update_vtk_view(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10)
 		Scores.append((volname, '10'))
 
 	#print(Scores)
-	print("{} {} {} {}\n".format(idx, volname, Val, Scores))
+	#print("{} {} {} {}\n".format(idx, volname, Val, Scores))
 	
 	if len(Scores) == NbImages:
-		with open(r'output.txt', 'w') as fp:
+		now = datetime.now()
+		current_time = now.strftime("%H:%M:%S")
+		today = date.today()
+		with open(r'output_' + str(today) + '_' + current_time + '.txt', 'w') as fp:
 			for item in Scores:
 				#fp.write("volname: %s\tScore:  %s\n" % {volname,item})
 				fp.write('volname: {}; Score: {}\n'.format(item[0], item[1]))

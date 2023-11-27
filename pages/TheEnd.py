@@ -6,8 +6,10 @@ dash.register_page(__name__, path='/pages/TheEnd')
 layout = html.Div([
 	html.Br(),
 	html.Br(),
-	html.H1("Merci pour votre participation !"),
+	html.H2("Merci pour votre participation !"),
+	html.Br(),
+	html.Div("Vous pouvez fermer cette fenêtre."),
 	html.Br(),
 	html.Br(),
-	#dcc.Link(html.Button("NEXT"), href="/pages/subjexp", refresh=True),
+	dcc.Link(html.Button("BACK"), href="/pages/home", refresh=True),
 ])

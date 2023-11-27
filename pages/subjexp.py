@@ -32,17 +32,19 @@ with open(r"playlist.txt", 'r') as fp:
 
 NbImages = len(lines)
 
-Anchoring = lines[0:3]
+NbAnchors = 5
+Anchoring = lines[0:NbAnchors]
 
 # Randomize Playlist :
-Random_PL = lines[3:NbImages]
+Random_PL = lines[NbAnchors:NbImages]
 random.shuffle(Random_PL)
 
 FinalPlaylist = lines.copy()
-FinalPlaylist[0:3] = Anchoring
-FinalPlaylist[3:NbImages] = Random_PL
+FinalPlaylist[0:NbAnchors] = Anchoring
+FinalPlaylist[NbAnchors:NbImages] = Random_PL
 
 #FinalPlaylist = lines
+
 
 # Load vtk image (3D) :
 volname = FinalPlaylist[0][:-1]

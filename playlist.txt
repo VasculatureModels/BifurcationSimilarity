@@ -1,3 +1,6 @@
+images/A1.nrrd
+images/A2.nrrd
+images/A3.nrrd
 images/1.nrrd
 images/2.nrrd
 images/3.nrrd

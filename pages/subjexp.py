@@ -2,7 +2,7 @@ import dash
 from dash.dependencies import Input, Output
 from dash import Dash, dcc, html, Input, Output, State, callback, ctx
 import numpy as np
-import sys
+import os, sys
 import webbrowser
 import itk
 import vtk
@@ -31,17 +31,21 @@ with open(r"playlist.txt", 'r') as fp:
 	lines = fp.readlines()
 
 NbImages = len(lines)
-#lines2 = lines[2:NbImages-2]
+
+Anchoring = lines[0:3]
 
 # Randomize Playlist :
-Random_PL = list(lines)
+Random_PL = lines[3:NbImages]
 random.shuffle(Random_PL)
-#RandPlayList = lines.copy()
-#RandPlayList[2:NbImages-2] = Random_PL
-#lines = RandPlayList
+
+FinalPlaylist = lines.copy()
+FinalPlaylist[0:3] = Anchoring
+FinalPlaylist[3:NbImages] = Random_PL
+
+#FinalPlaylist = lines
 
 # Load vtk image (3D) :
-volname = lines[0][:-1]
+volname = FinalPlaylist[0][:-1]
 
 def loadVol(volname):
 	itkImage = itk.imread(volname)
@@ -77,7 +81,7 @@ def build_vtk_representation(vtkVol, volname, _id):
 
 views = []
 for i in range(NbImages):
-	views.append(build_vtk_representation(vtkVol, lines[i][:-1], _id="bar"),)
+	views.append(build_vtk_representation(vtkVol, FinalPlaylist[i][:-1], _id="bar"),)
 
 
 Scores = []
@@ -133,14 +137,6 @@ layout = html.Div(
 	#State('input-on-submit', 'value'),
 	prevent_initial_call=False
 
-	#Output('slider-output-container', 'children'),
-	#Output("vtk-view", "children"),
-	#Input('my-slider', 'value'),
-	#Input('submit-val', 'n_clicks'),
-	#State('my-slider', 'value'),
-	#Output("vtk-view", "triggerRender"),
-	#State('input-on-submit', 'value'),
-	#prevent_initial_call=False,
 )
 def update_vtk_view(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10):
 	#msg = "Select a score in [1,10]"
@@ -151,61 +147,61 @@ def update_vtk_view(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10)
 	if "val1" == ctx.triggered_id:
 		Val = 1
 		idx = len(Scores) 
-		volname = lines[idx][:-1]
+		volname = FinalPlaylist[idx][:-1]
 		Scores.append((volname, '1'))
 
 	elif "val2" == ctx.triggered_id:
 		Val = 2
 		idx = len(Scores) 
-		volname = lines[idx][:-1]
+		volname = FinalPlaylist[idx][:-1]
 		Scores.append((volname, '2'))
 
 	elif "val3" == ctx.triggered_id:
 		Val = 3
 		idx = len(Scores) 
-		volname = lines[idx][:-1]
+		volname = FinalPlaylist[idx][:-1]
 		Scores.append((volname, '3'))
 
 	elif "val4" == ctx.triggered_id:
 		Val = 4
 		idx = len(Scores) 
-		volname = lines[idx][:-1]
+		volname = FinalPlaylist[idx][:-1]
 		Scores.append((volname, '4'))
 
 	elif "val5" == ctx.triggered_id:
 		Val = 5
 		idx = len(Scores) 
-		volname = lines[idx][:-1]
+		volname = FinalPlaylist[idx][:-1]
 		Scores.append((volname, '5'))
 
 	elif "val6" == ctx.triggered_id:
 		Val = 6
 		idx = len(Scores) 
-		volname = lines[idx][:-1]
+		volname = FinalPlaylist[idx][:-1]
 		Scores.append((volname, '6'))
 
 	elif "val7" == ctx.triggered_id:
 		Val = 7
 		idx = len(Scores) 
-		volname = lines[idx][:-1]
+		volname = FinalPlaylist[idx][:-1]
 		Scores.append((volname, '7'))
 
 	elif "val8" == ctx.triggered_id:
 		Val = 8
 		idx = len(Scores) 
-		volname = lines[idx][:-1]
+		volname = FinalPlaylist[idx][:-1]
 		Scores.append((volname, '8'))
 
 	elif "val9" == ctx.triggered_id:
 		Val = 9
 		idx = len(Scores) 
-		volname = lines[idx][:-1]
+		volname = FinalPlaylist[idx][:-1]
 		Scores.append((volname, '9'))
 
 	elif "val10" == ctx.triggered_id:
 		Val = 10
 		idx = len(Scores) 
-		volname = lines[idx][:-1]
+		volname = FinalPlaylist[idx][:-1]
 		Scores.append((volname, '10'))
 
 	#print(Scores)
@@ -215,7 +211,11 @@ def update_vtk_view(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10)
 		now = datetime.now()
 		current_time = now.strftime("%H:%M:%S")
 		today = date.today()
-		with open(r'output_' + str(today) + '_' + current_time + '.txt', 'w') as fp:
+		if os.path.exists('./outputs/') == False:
+			os.makedirs("outputs/")
+			os.chmod("outputs/", 0o755)
+
+		with open(r'./outputs/output_' + str(today) + '_' + current_time + '.txt', 'w') as fp:
 			for item in Scores:
 				#fp.write("volname: %s\tScore:  %s\n" % {volname,item})
 				fp.write('volname: {}; Score: {}\n'.format(item[0], item[1]))

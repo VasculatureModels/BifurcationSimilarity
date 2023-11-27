@@ -11,5 +11,5 @@ layout = html.Div([
 	html.Div("Vous pouvez fermer cette fenêtre."),
 	html.Br(),
 	html.Br(),
-	dcc.Link(html.Button("BACK"), href="/pages/home", refresh=True),
+	dcc.Link(html.Button("BACK"), href="/", refresh=True),
 ])

@@ -212,6 +212,7 @@ def update_vtk_view(val1, val2, val3, val4, val5, val6, val7, val8, val9, val10)
 			for i in range(len(Scores)-1):
 				NewScores.append((Scores[i][0], Scores[i+1][1]))
 
+			NewScores.sort()
 			with open(r'./outputs/output_' + str(today) + '_' + current_time + '.txt', 'w') as fp:
 				for item in NewScores:
 					fp.write('volname: {}; Score: {}\n'.format(item[0], item[1]))

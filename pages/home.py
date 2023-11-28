@@ -10,7 +10,7 @@ layout = html.Div([
 	html.Br(),
 	html.H3("Deux portions d'arbres vasculaires seront présentées dans un affichage 3D, l'une est une originale (acquise depuis une MRA-TOF), l'autre est le fruit d'un modèle synthétique."),
 	html.Br(),
-	html.Div("La portion affichée en vert est une originale (extraite d'une IRM de patient), la jaune provient d'un modèle synthétique."),
+	html.Div("La portion affichée en vert est une originale (extraite d'une IRM de patient), la jaune provient du modèle synthétique."),
 	html.Br(),
 	html.Div("Il y aura nécessairement des différences dans la tortuosité des branches, ce qui importe c'est surtout leur présence, pas leur forme."),
 	html.Br(),
@@ -35,7 +35,40 @@ layout = html.Div([
 	html.Br(),
 	dcc.Link(html.Button("NEXT"), href="/pages/subjexp", refresh=True),
 ])
-
+"""
+layout = html.Div([
+	html.Br(),
+	html.Br(),
+	html.H2("The goal of this subjective experiment is to assess the similarities between cerebral bifurcations."),
+	html.Br(),
+	html.H3("Two portions (3D crops) of vascular trees will be shown within a 3D display, one is an original bifurcaion (acquired from an MRA-TOF), the other has been generated via a synthetic model."),
+	html.Br(),
+	html.Div("The green vascular tree is the original (from a patient MRI), the yellow one is the synthetic modeled."),
+	html.Br(),
+	html.Div("There will necessarily be some differences in the geometrical layout (different tortuosity between the branches), but what actually matters is mostly the branches presence, not quite their shape."),
+	html.Br(),
+	html.H4("Protocol description:"),
+	html.Br(),
+	html.Div("The observers shall use the ten push buttons, placed at the very top of the page, to assess the similarities."),
+	html.Br(),
+	html.Div("When selecting a similarity score (1 : very few simialrities, 10 : almost identical vascular trees), the protocol moves on to the next display."),
+	html.Br(),
+	html.Div("This score can be seen as a measure of the reliability percentage of the synthetic model, i.e. we quantify the number of modeled branches."),
+	html.Br(),
+	html.Div("150 portions of vascular trees will be shown, the test duration is about 20 minutes."),
+	html.Br(),
+	html.H4("Controls :"),
+	html.Ul("* For each 3D display, the user can rotate the bifurcation using the left mouse button. "),
+	html.Ul("* It is also possible to zoom (in/out) (using the scroll wheel)."),
+	html.Ul("* The display can also be shifted (by holding the 'SHIFT' key, whie dragging the image)."),
+	html.Br(),
+	html.Br(),
+	html.Div("NOTE : The first 5 images are used for anchoring, i.e. their purpose is to give the user an idea of the distortions within the [1,10] similmarity range."),
+	html.Br(),
+	html.Br(),
+	dcc.Link(html.Button("NEXT"), href="/pages/subjexp", refresh=True),
+])
+"""
 """
 layout = html.Div(
 	dcc.Markdown(['''

@@ -1,4 +1,13 @@
 Misc/volume.vti
 Misc/*
 Misc_Code/*
-
+images/batch_rename_images.sh
+images/originals/
+images/originals.7z
+images/originals/*
+images/v_0/*
+pages/__pycache__/home.cpython-39.pyc
+pages/__pycache__/subjexp.cpython-39.pyc
+.DS_Store
+pages/__pycache__/subjexp1.cpython-39.pyc
+pages/__pycache__/subjexp2.cpython-39.pyc

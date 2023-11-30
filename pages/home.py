@@ -33,7 +33,9 @@ layout = html.Div([
 	html.Div("NOTE : Les 5 premières images servent d'ancrage, i.e. elles montrent l'amplitude des distortions sur l'échelle de similarités [1,10]."),
 	html.Br(),
 	html.Br(),
-	dcc.Link(html.Button("NEXT"), href="/pages/subjexp", refresh=True),
+	dcc.Link(html.Button("EXPERIMENT #1"), href="/pages/subjexp1", refresh=True),
+	html.Br(),
+	dcc.Link(html.Button("EXPERIMENT #2"), href="/pages/subjexp2", refresh=True),
 ])
 """
 layout = html.Div([

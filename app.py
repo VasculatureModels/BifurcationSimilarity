@@ -3,9 +3,10 @@ from dash import Dash, html, dcc
 
 app = Dash(__name__, use_pages=True)
 
+server = app.server
 
 app.layout = html.Div([
-    html.H1("Evaluation de la similarité des bifurcations"),
+    html.H1("Evaluation of Bifurcation similarity"),
     #html.Div([
     #    html.Div(
     #        dcc.Link(f"{page['name']} - {page['path']}", href=page["relative_path"])

@@ -103,7 +103,12 @@ layout = html.Div(
 		html.Br(),
 		html.Div(id="output"),
 		html.Br(),
-		dash_vtk.View(id="vtk-view2"),
+		dash_vtk.View(id="vtk-view2",  
+				#background=[0, 0, 0],           # RGB array of floating point values between 0 and 1.
+				#cameraParallelProjection=False, # Should we see our 3D work with perspective or flat with no depth perception
+				#triggerRender=0,                # Timestamp meant to trigger a render when different
+				#triggerResetCamera=0,           # Timestamp meant to trigger a reset camera when different
+				),
 	],
 )
 

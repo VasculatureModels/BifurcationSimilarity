@@ -1,4 +1,3 @@
-images/start.nrrd
 images/A1.nrrd
 images/A2.nrrd
 images/A3.nrrd

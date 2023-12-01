@@ -1,8 +1,8 @@
-images/A1.nrrd
-images/A2.nrrd
-images/A3.nrrd
-images/A4.nrrd
-images/A5.nrrd
+images/set2/A1_Set2.nrrd
+images/set2/A2_Set2.nrrd
+images/set2/A3_Set2.nrrd
+images/set2/A4_Set2.nrrd
+images/set2/A5_Set2.nrrd
 images/set2/106__Fid=7_M01.nrrd
 images/set2/106__Fid=7_M02.nrrd
 images/set2/106__Fid=7_M03.nrrd

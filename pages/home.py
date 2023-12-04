@@ -39,6 +39,9 @@ dcc.Link(html.Button("EXPERIMENT #1"), href="/pages/subjexp1", refresh=True),
 html.Br(),
 html.Br(),
 dcc.Link(html.Button("EXPERIMENT #2"), href="/pages/subjexp2", refresh=True),
+html.Br(),
+html.Br(),
+dcc.Link(html.Button("EXPERIMENT #3"), href="/pages/subjexp3", refresh=True),
 ])
 """ """
 

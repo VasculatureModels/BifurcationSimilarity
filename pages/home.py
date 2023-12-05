@@ -20,18 +20,21 @@ layout = html.Div([
 	## Protocole :
 	Dix boutons sont positionnés en haut de la page et servent à évaluer les similarités.
 
-	La sélection d'un score (1 : très peu de similarités, 10 : bifurcations quasi-identiques), permet de passer à l'affichage suivant.
+	La sélection d'un score (1 : très peu de similarités, 10 : bifurcations quasi-identiques), permet de passer à l'affichage suivant.  
+	Un score de 1 signifie : "entre 0% et 10% de similarités", un score de 2 : "entre 10 et 20% de similarités", etc.
 
 	Ce score est une mesure du pourcentage de fiabilité du modèle, i.e. il quantifie le nombre de branches présentes.
 
-	Il y a deux test, composés chacun de 150 portions d'arbres vasculaires, chaque test dure approximativement 20 minutes.
+	Il y a trois tests différents, composés chacun de 150 portions d'arbres vasculaires, chaque test dure approximativement 20 à 25 minutes.
 
 	## Commandes : 
 	+ Pour chaque affichage 3D, il est possible de faire pivoter la bifurcation avec le bouton de gauche de la souris. 
 	+ Il est aussi possible de zoomer (avec la molette de la souris)
 	+ ou encore déplacer (en utilisant la touche 'SHIFT' du clavier).
 
-	NOTE : Les 5 premières images servent d'ancrage, i.e. elles montrent l'amplitude des distortions sur l'échelle de similarités \[1,10\].
+	NOTES :  
+	&nbsp;&nbsp;&nbsp;&nbsp; 1) Les 5 premières images servent d'ancrage, i.e. elles montrent l'amplitude des distortions sur l'échelle de similarités \[1,10\].  
+	&nbsp;&nbsp;&nbsp;&nbsp; 2) Parfois, la partie "modèle" (verte) peut être manquante, mais un score est requis (noter "1").  
 	
 '''],),
 html.Br(),
@@ -63,11 +66,12 @@ layout = html.Div([
 
 	The observers shall use the ten push buttons, placed at the very top of the page, to assess the similarities.
 
-	When selecting a similarity score (1 : very few simialrities, 10 : almost identical vascular trees), the protocol moves on to the next display.
+	When selecting a similarity score (1 : very few simialrities, 10 : almost identical vascular trees), the protocol moves on to the next display.  
+	A score of 1 means : "between 0% and 10% similarities", a score of 2 : "between 10 and 20% similarities", etc.
 
 	This score can be seen as a measure of the reliability percentage of the synthetic model, i.e. we quantify the number of modeled branches.
 
-	There are two distinct experiments, each one is composed of 150 portions of vascular trees, for each test, the duration is about 20 minutes.
+	There are three distinct experiments, each one is composed of 150 portions of vascular trees, for each test, the duration is about 20 to 25 minutes.
 
 	## Controls :
 	+ For each 3D display, the user can rotate the bifurcation using the left mouse button. 
@@ -75,7 +79,9 @@ layout = html.Div([
 	+ The display can also be shifted (by holding the 'SHIFT' key, whie dragging the image).
 	
 	
-	NOTE : The first 5 images are used for anchoring, i.e. their purpose is to give the user an idea of the distortions within the \[1,10\] similmarity range.
+	NOTES :  
+	&nbsp;&nbsp;&nbsp;&nbsp; 1) The first 5 images are used for anchoring, i.e. their purpose is to give the user an idea of the distortions within the \[1,10\] similmarity range.  
+	&nbsp;&nbsp;&nbsp;&nbsp; 2) It can happen that the model portion is missing, a score is required anyway (allocate a "1").  
 
 '''],),
 html.Br(),
@@ -83,5 +89,8 @@ dcc.Link(html.Button("EXPERIMENT #1"), href="/pages/subjexp1", refresh=True),
 html.Br(),
 html.Br(),
 dcc.Link(html.Button("EXPERIMENT #2"), href="/pages/subjexp2", refresh=True),
+html.Br(),
+html.Br(),
+dcc.Link(html.Button("EXPERIMENT #3"), href="/pages/subjexp3", refresh=True),
 ])
 """

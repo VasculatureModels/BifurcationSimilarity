@@ -1,6 +1,0 @@
-volname: images/set3/140__Fid_11_M10.nrrd; Score: 8
-volname: images/set3/A1_Set3.nrrd; Score: 1
-volname: images/set3/A1_Set3.nrrd; Score: 1
-volname: images/set3/A1_Set3.nrrd; Score: 1
-volname: images/set3/A1_Set3.nrrd; Score: 1
-volname: images/set3/A1_Set3.nrrd; Score: 1

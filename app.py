@@ -1,7 +1,7 @@
 import dash
 from dash import Dash, html, dcc
 
-app = Dash(__name__, use_pages=True)
+app = Dash(__name__, use_pages=True, server=True)
 
 server = app.server
 
@@ -16,4 +16,4 @@ app.layout = html.Div([
 ])
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8050, host="127.0.0.1")
+    app.run_server(debug=True, port=8050, host="127.0.0.1")

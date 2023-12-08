@@ -148,6 +148,7 @@ images/set3/1__Fid=1_M02.nrrd
 images/set3/1__Fid=1_M03.nrrd
 images/set3/1__Fid=1_M04.nrrd
 images/set3/1__Fid=1_M06.nrrd
+images/set3/1__Fid=1_M05.nrrd
 images/set3/1__Fid=1_M07.nrrd
 images/set3/1__Fid=1_M08.nrrd
 images/set3/1__Fid=1_M09.nrrd

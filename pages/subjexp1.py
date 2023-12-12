@@ -84,7 +84,7 @@ for i in range(NbImages):
 	views.append(build_vtk_representation(vtkVol, FinalPlaylist[i][:-1], _id="foo"),)
 
 
-Scores = []
+#Scores = []
 #idx = 0
 layout = html.Div(
 	style={"width": "100%", "height": "600px"},
@@ -142,6 +142,7 @@ def update_vtk_view(val1, val2, val3, val4, val5, val6, val7, val8, val9, val10)
 		idx = val1 + val2 + val3 + val4 + val5 + val6 + val7 + val8 + val9 + val10 -1
 		volname = ''
 		Val = 0
+		Scores = []
 		#print(" %d %d %d %d %d %d %d %d %d %d" %(val1, val2, val3, val4, val5, val6, val7, val8, val9, val10))
 		if "val1" == ctx.triggered_id:
 			Val = 1
@@ -205,13 +206,13 @@ def update_vtk_view(val1, val2, val3, val4, val5, val6, val7, val8, val9, val10)
 
 		#print("{} {} {} {}\n".format(idx, volname, Val, Scores))
 
-		if len(Scores) == NbImages:
+		if "end.nrrd" in volname:
 			now = datetime.now()
 			current_time = now.strftime("%H:%M:%S")
 			today = date.today()
 			if os.path.exists('./outputs/') == False:
-				os.makedirs("outputs/")
-				os.chmod("outputs/", 0o755)
+				os.makedirs("./outputs/")
+				os.chmod("./outputs/", 0o755)
 			
 			NewScores = []
 			for i in range(len(Scores)-1):
@@ -221,11 +222,13 @@ def update_vtk_view(val1, val2, val3, val4, val5, val6, val7, val8, val9, val10)
 			with open(r'./outputs/output_1_' + str(today) + '_' + current_time + '.txt', 'w') as fp:
 				for item in NewScores:
 					fp.write('{}; {}\n'.format(item[0], item[1]))
-			#print('Done')
+
 			Done = 1
 			idx = 0
 			volname = ''
 			Val = 0
+			fp.close()
+			NewScores = []
 			#Scores = []
 			#dcc.Location(pathname="/pages/TheEnd", id="backhome")
 			#sys.exit()

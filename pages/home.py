@@ -48,6 +48,9 @@ dcc.Link(html.Button("EXPERIMENT #3"), href="/pages/subjexp3", refresh=True),
 html.Br(),
 html.Br(),
 dcc.Link(html.Button("EXPERIMENT #4"), href="/pages/subjexp4", refresh=True),
+html.Br(),
+html.Br(),
+dcc.Link(html.Button("EXPERIMENT #5"), href="/pages/subjexp5", refresh=True),
 ])
 """ """
 
@@ -98,5 +101,8 @@ dcc.Link(html.Button("EXPERIMENT #3"), href="/pages/subjexp3", refresh=True),
 html.Br(),
 html.Br(),
 dcc.Link(html.Button("EXPERIMENT #4"), href="/pages/subjexp4", refresh=True),
+html.Br(),
+html.Br(),
+dcc.Link(html.Button("EXPERIMENT #5"), href="/pages/subjexp5", refresh=True),
 ])
 """

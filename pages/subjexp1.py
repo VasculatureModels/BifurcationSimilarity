@@ -84,7 +84,7 @@ for i in range(NbImages):
 	views.append(build_vtk_representation(vtkVol, FinalPlaylist[i][:-1], _id="foo"),)
 
 
-#Scores = []
+Scores = []
 #idx = 0
 layout = html.Div(
 	style={"width": "100%", "height": "600px"},
@@ -142,7 +142,6 @@ def update_vtk_view(val1, val2, val3, val4, val5, val6, val7, val8, val9, val10)
 		idx = val1 + val2 + val3 + val4 + val5 + val6 + val7 + val8 + val9 + val10 -1
 		volname = ''
 		Val = 0
-		Scores = []
 		#print(" %d %d %d %d %d %d %d %d %d %d" %(val1, val2, val3, val4, val5, val6, val7, val8, val9, val10))
 		if "val1" == ctx.triggered_id:
 			Val = 1
@@ -215,8 +214,15 @@ def update_vtk_view(val1, val2, val3, val4, val5, val6, val7, val8, val9, val10)
 				os.chmod("./outputs/", 0o755)
 			
 			NewScores = []
-			for i in range(len(Scores)-1):
-				NewScores.append((Scores[i][0], Scores[i+1][1]))
+			if len(Scores) > 155:
+				for i in range(len(Scores)-156,len(Scores)-1):
+					NewScores.append((Scores[i][0], Scores[i+1][1]))
+			else:
+				for i in range(len(Scores)-1):
+					NewScores.append((Scores[i][0], Scores[i+1][1]))
+			
+			#for i in range(len(Scores)-1):
+			#	NewScores.append((Scores[i][0], Scores[i+1][1]))
 
 			NewScores.sort()
 			with open(r'./outputs/output_1_' + str(today) + '_' + current_time + '.txt', 'w') as fp:
@@ -228,7 +234,6 @@ def update_vtk_view(val1, val2, val3, val4, val5, val6, val7, val8, val9, val10)
 			volname = ''
 			Val = 0
 			fp.close()
-			NewScores = []
 			#Scores = []
 			#dcc.Location(pathname="/pages/TheEnd", id="backhome")
 			#sys.exit()

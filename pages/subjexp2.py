@@ -148,64 +148,75 @@ def update_vtk_view(val1, val2, val3, val4, val5, val6, val7, val8, val9, val10)
 			idx = idx +1
 			volname = FinalPlaylist[idx][:-1]
 			Scores.append((volname, '1'))
+			iScore = 1
 
 		elif "val2" == ctx.triggered_id:
 			Val = 2
 			idx = idx +1
 			volname = FinalPlaylist[idx][:-1]
 			Scores.append((volname, '2'))
+			iScore = 2
 
 		elif "val3" == ctx.triggered_id:
 			Val = 3
 			idx = idx +1
 			volname = FinalPlaylist[idx][:-1]
 			Scores.append((volname, '3'))
+			iScore = 3
 
 		elif "val4" == ctx.triggered_id:
 			Val = 4
 			idx = idx +1
 			volname = FinalPlaylist[idx][:-1]
 			Scores.append((volname, '4'))
+			iScore = 4
 
 		elif "val5" == ctx.triggered_id:
 			Val = 5
 			idx = idx +1
 			volname = FinalPlaylist[idx][:-1]
 			Scores.append((volname, '5'))
+			iScore = 5
 
 		elif "val6" == ctx.triggered_id:
 			Val = 6
 			idx = idx +1
 			volname = FinalPlaylist[idx][:-1]
 			Scores.append((volname, '6'))
+			iScore = 6
 
 		elif "val7" == ctx.triggered_id:
 			Val = 7
 			idx = idx +1
 			volname = FinalPlaylist[idx][:-1]
 			Scores.append((volname, '7'))
+			iScore = 7
 
 		elif "val8" == ctx.triggered_id:
 			Val = 8
 			idx = idx +1
 			volname = FinalPlaylist[idx][:-1]
 			Scores.append((volname, '8'))
+			iScore = 8
 
 		elif "val9" == ctx.triggered_id:
 			Val = 9
 			idx = idx +1
 			volname = FinalPlaylist[idx][:-1]
 			Scores.append((volname, '9'))
+			iScore = 9
 
 		elif "val10" == ctx.triggered_id:
 			Val = 10
 			idx = idx +1
 			volname = FinalPlaylist[idx][:-1]
 			Scores.append((volname, '10'))
+			iScore = 10
 
 		#print("{} {} {} {}\n".format(idx, volname, Val, Scores))
+		#print("{} {} {}".format(idx, volname, iScore))
 
-		if "end.nrrd" in volname:
+		if "end.nrrd" in volname or idx == len(lines):
 			now = datetime.now()
 			current_time = now.strftime("%H:%M:%S")
 			today = date.today()
@@ -243,7 +254,10 @@ def update_vtk_view(val1, val2, val3, val4, val5, val6, val7, val8, val9, val10)
 			volname = ''
 			Val = 0
 			#Scores = []
-			return dcc.Location(pathname="/pages/TheEnd", id="backhome")
+			if "/var/www" in os.getcwd():
+				return dcc.Location(pathname="/VaMosSubjExp/pages/TheEnd", id="backhome")
+			else:
+				return dcc.Location(pathname="/pages/TheEnd", id="backhome")
 		else:
 			#if idx == 0:
 			#	Scores.append(('start',0))

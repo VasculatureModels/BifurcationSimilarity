@@ -3,7 +3,7 @@ from dash import html, dcc
 
 dash.register_page(__name__, path='/')
 
-""" """
+""" 
 layout = html.Div([
 	dcc.Markdown(['''
 
@@ -25,7 +25,7 @@ layout = html.Div([
 
 	&nbsp;&nbsp;Ce score est une mesure du pourcentage de fiabilité du modèle, i.e. il quantifie le nombre de branches présentes.
 
-	&nbsp;&nbsp;Il y a cinq tests différents, composés chacun de 150 portions d'arbres vasculaires, chaque test dure approximativement 20 à 25 minutes.
+	&nbsp;&nbsp;Il y a sept tests différents, composés chacun de 150 portions d'arbres vasculaires, chaque test dure approximativement 20 à 25 minutes.
 
 	## &nbsp;&nbsp;Commandes : 
 	+ &emsp;Pour chaque affichage 3D, il est possible de faire pivoter la bifurcation avec le bouton de gauche de la souris. 
@@ -58,9 +58,9 @@ html.Br(),
 html.Br(),
 dcc.Link(html.Button("EXPERIMENT #7"), href="/pages/subjexp7", refresh=True),
 ])
-""" """
+""" 
 
-"""
+
 layout = html.Div([
 	dcc.Markdown(['''
 
@@ -83,7 +83,7 @@ layout = html.Div([
 
 	&nbsp;&nbsp;This score can be seen as a measure of the reliability percentage of the synthetic model, i.e. we quantify the number of modeled branches.
 
-	&nbsp;&nbsp;There are five distinct experiments, each one being composed of 150 portions of vascular trees, for each test, the duration is about 20 to 25 minutes.
+	&nbsp;&nbsp;There are seven distinct experiments, each one being composed of 150 portions of vascular trees, for each test, the duration is about 20 to 25 minutes.
 
 	## &nbsp;&nbsp;Controls :
 	+ For each 3D display, the user can rotate the bifurcation using the left mouse button. 
@@ -117,4 +117,4 @@ html.Br(),
 html.Br(),
 dcc.Link(html.Button("EXPERIMENT #7"), href="/pages/subjexp7", refresh=True),
 ])
-"""
+
